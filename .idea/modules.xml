@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Tiny-Tiny-RSS-for-Honeycomb.iml" filepath="$PROJECT_DIR$/Tiny-Tiny-RSS-for-Honeycomb.iml" />
       <module fileurl="file://$PROJECT_DIR$/org.fox.ttrss/org.fox.ttrss.iml" filepath="$PROJECT_DIR$/org.fox.ttrss/org.fox.ttrss.iml" />
       <module fileurl="file://$PROJECT_DIR$/taskerlocaleapi/taskerlocaleapi.iml" filepath="$PROJECT_DIR$/taskerlocaleapi/taskerlocaleapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ttrss.iml" filepath="$PROJECT_DIR$/ttrss.iml" />
     </modules>
   </component>
 </project>

@@ -476,64 +476,64 @@ public class OnlineActivity extends CommonActivity {
 	}
 	
 	public void checkTrial(boolean notify) {
-        if (!BuildConfig.DEBUG) {
-
-            boolean isTrial = getPackageManager().checkSignatures(
-                    getPackageName(), "org.fox.ttrss.key") != PackageManager.SIGNATURE_MATCH;
-
-            if (isTrial) {
-                long firstStart = m_prefs.getLong("date_firstlaunch_trial", -1);
-
-                if (firstStart == -1) {
-                    firstStart = System.currentTimeMillis();
-
-                    SharedPreferences.Editor editor = m_prefs.edit();
-                    editor.putLong("date_firstlaunch_trial", firstStart);
-                    editor.commit();
-                }
-
-                if (!notify && System.currentTimeMillis() > firstStart + (TRIAL_DAYS * 24 * 60 * 60 * 1000)) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                            .setTitle(R.string.trial_expired)
-                            .setMessage(R.string.trial_expired_message)
-                            .setCancelable(false)
-                            .setPositiveButton(getString(R.string.trial_purchase),
-                                    new OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-
-                                            openUnlockUrl();
-                                            finish();
-
-                                        }
-                                    })
-                            .setNegativeButton(getString(R.string.cancel),
-                                    new OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-
-                                            finish();
-
-                                        }
-                                    });
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-
-                } else {
-                    int daysLeft = Math.round((firstStart + (TRIAL_DAYS * 24 * 60 * 60 * 1000) - System.currentTimeMillis()) / (24 * 60 * 60 * 1000));
-
-                    if (notify) {
-                        toast(getResources().getQuantityString(R.plurals.trial_mode_prompt, daysLeft, daysLeft));
-                    }
-                }
-            } else if (notify) {
-                //toast(R.string.trial_thanks);
-            }
-        }
+//        if (!BuildConfig.DEBUG) {
+//
+//            boolean isTrial = getPackageManager().checkSignatures(
+//                    getPackageName(), "org.fox.ttrss.key") != PackageManager.SIGNATURE_MATCH;
+//
+//            if (isTrial) {
+//                long firstStart = m_prefs.getLong("date_firstlaunch_trial", -1);
+//
+//                if (firstStart == -1) {
+//                    firstStart = System.currentTimeMillis();
+//
+//                    SharedPreferences.Editor editor = m_prefs.edit();
+//                    editor.putLong("date_firstlaunch_trial", firstStart);
+//                    editor.commit();
+//                }
+//
+//                if (!notify && System.currentTimeMillis() > firstStart + (TRIAL_DAYS * 24 * 60 * 60 * 1000)) {
+//
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(this)
+//                            .setTitle(R.string.trial_expired)
+//                            .setMessage(R.string.trial_expired_message)
+//                            .setCancelable(false)
+//                            .setPositiveButton(getString(R.string.trial_purchase),
+//                                    new OnClickListener() {
+//                                        @Override
+//                                        public void onClick(DialogInterface dialog,
+//                                                            int which) {
+//
+//                                            openUnlockUrl();
+//                                            finish();
+//
+//                                        }
+//                                    })
+//                            .setNegativeButton(getString(R.string.cancel),
+//                                    new OnClickListener() {
+//                                        @Override
+//                                        public void onClick(DialogInterface dialog,
+//                                                            int which) {
+//
+//                                            finish();
+//
+//                                        }
+//                                    });
+//
+//                    AlertDialog dialog = builder.create();
+//                    dialog.show();
+//
+//                } else {
+//                    int daysLeft = Math.round((firstStart + (TRIAL_DAYS * 24 * 60 * 60 * 1000) - System.currentTimeMillis()) / (24 * 60 * 60 * 1000));
+//
+//                    if (notify) {
+//                        toast(getResources().getQuantityString(R.plurals.trial_mode_prompt, daysLeft, daysLeft));
+//                    }
+//                }
+//            } else if (notify) {
+//                //toast(R.string.trial_thanks);
+//            }
+//        }
 	}
 	
 	private void openUnlockUrl() {
